@@ -4,3 +4,4 @@ open-webui/*
 !open-webui/.gitkeep
 vllm_root_cache/*
 !vllm_root_cache/.gitkeep
+temp/*
