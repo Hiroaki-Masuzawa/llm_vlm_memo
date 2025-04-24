@@ -1,0 +1,6 @@
+ollama/*
+!ollama/.gitkeep
+open-webui/*
+!open-webui/.gitkeep
+vlm_root_cache/*
+!vlm_root_cache/.gitkeep
