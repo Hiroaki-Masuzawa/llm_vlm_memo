@@ -51,3 +51,10 @@ exec_llama3.sh
     ```
 2. http://localhost:5955 にアクセスする．
 
+### python
+- ollama
+以下を参考にする．
+https://www.ollama.com/blog/openai-compatibility
+- vllm
+以下が参考になる．
+https://qiita.com/engchina/items/f7cc32f3f34011b69a18#api%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E3%81%AE%E9%80%81%E4%BF%A1
