@@ -1,4 +1,4 @@
-CACHEDIR=${PWD}/vlm_root_cache
+CACHEDIR=${PWD}/vllm_root_cache
 MODEL=Qwen/Qwen2-VL-7B-Instruct
 
 docker run --network=host \

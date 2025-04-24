@@ -1,4 +1,4 @@
-CACHEDIR=${PWD}/vlm_root_cache
+CACHEDIR=${PWD}/vllm_root_cache
 docker run --gpus all \
   --ipc=host --network=host \
   --rm --name qwen2.5 -it \

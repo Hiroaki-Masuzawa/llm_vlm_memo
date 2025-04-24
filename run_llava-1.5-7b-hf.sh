@@ -1,4 +1,4 @@
-CACHEDIR=${PWD}/vlm_root_cache
+CACHEDIR=${PWD}/vllm_root_cache
 
 docker run --gpus all --network=host \
     -v ${CACHEDIR}:/root/.cache \
