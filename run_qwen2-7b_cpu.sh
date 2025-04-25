@@ -6,5 +6,5 @@ docker run --rm --network=host \
     --ipc=host \
     -v ${PWD}/vllm:/vllm \
     vllm-cpu-env \
-    --model ${MODEL}
+    --model ${MODEL} --served-model-name Qwen2-VL-7B-Instruct
 

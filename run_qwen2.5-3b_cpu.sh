@@ -6,5 +6,5 @@ docker run --rm --network=host \
     --ipc=host \
     -v ${PWD}/vllm:/vllm \
     vllm-cpu-env \
-    --model ${MODEL} --max_model_len 116480
+    --model ${MODEL} --served-model-name Qwen2.5-VL-3B-Instruct --max_model_len 116480
 
