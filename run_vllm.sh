@@ -32,6 +32,16 @@ while [[ $# -gt 0 ]]; do
                     SERVEDMODEL=llava-1.5-7b-hf
                     OPTIONS+=" --chat-template /vllm/examples/template_llava.jinja --gpu_memory_utilization 0.95 --max_model_len 1024"   ## VLAM 16GB設定
                     ;;
+                blip2)
+                    MODEL=Salesforce/blip2-opt-2.7b
+                    SERVEDMODEL=blip2-opt-2.7b
+                    OPTIONS+=" --chat-template /vllm/examples/template_blip2.jinja"
+                    ;;
+                blip2-6.7b)
+                    MODEL=Salesforce/blip2-opt-6.7b
+                    SERVEDMODEL=blip2-opt-6.7b
+                    OPTIONS+=" --chat-template /vllm/examples/template_blip2.jinja"
+                    ;;
                 *)
                     echo "Unknown model $2"
                     exit 1
