@@ -5,3 +5,4 @@ open-webui/*
 vllm_root_cache/*
 !vllm_root_cache/.gitkeep
 temp/*
+python_api/*png
