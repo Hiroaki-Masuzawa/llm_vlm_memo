@@ -42,11 +42,11 @@ docker run -d --gpus=all -v ollama:/root/.ollama -p 11434:11434 --name ollama ol
     ```
 - llava-1.5-7b (GPU)
     ```
-    ./run_vllm.sh llava-1.5
+    ./run_vllm.sh --model llava-1.5
     ```
 - blip2-2.7b (GPU)
     ```
-    ./run_vllm.sh blip2
+    ./run_vllm.sh --model blip2
     ```
 - blip2-6.7b (CPU)
     ```
