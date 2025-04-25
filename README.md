@@ -36,7 +36,7 @@ docker run -d --gpus=all -v ollama:/root/.ollama -p 11434:11434 --name ollama ol
     ```
     ./run_vllm.sh --model qwen2-7b --no-gpu
     ```
-- Qwen2.5-VL-3B (CPU)
+- Qwen2.5-VL-3B (GPU)
     ```
     ./run_vllm.sh --model qwen2.5
     ```
