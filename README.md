@@ -12,6 +12,8 @@ ghcr.io/open-webui/open-webui:main
 docker pull vllm/vllm-openai:latest
 ```
 ### CPU
+vllm/docker/Dockerfile.cpuに以下環境変数を追記する．
+```ENV SETUPTOOLS_SCM_PRETEND_VERSION=0.8.4```
 ```
 cd vllm
 docker build -f docker/Dockerfile.cpu --tag vllm-cpu-env --target vllm-openai .
@@ -21,20 +23,26 @@ cd ..
 # 実行
 ## サーバ側
 ### ollama
+```
 docker run -d --gpus=all -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
+```
 ### vllm
 以下適切なものを選ぶ
 - Qwen2-VL-2B (GPU)
     ```
-    ./run_qwen2.sh
+    ./run_vllm.sh
     ```
 - Qwen2-VL-7B (CPU)
     ```
-    ./run_qwen2-7b_cpu.sh
+    ./run_vllm.sh --model qwen2-7b --no-gpu
+    ```
+- Qwen2.5-VL-3B (CPU)
+    ```
+    ./run_vllm.sh --model qwen2.5
     ```
 - llava-1.5-7b (GPU)
     ```
-    ./run_llava-1.5-7b-hf.sh
+    ./run_vllm.sh llava-1.5
     ```
 - 
 
@@ -52,6 +60,8 @@ exec_llama3.sh
 2. http://localhost:5955 にアクセスする．
 
 ### python
+python_apiディレクトリを参考にする．
+
 - ollama
 以下を参考にする．
 https://www.ollama.com/blog/openai-compatibility
