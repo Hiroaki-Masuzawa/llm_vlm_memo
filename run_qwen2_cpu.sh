@@ -1,5 +1,5 @@
 CACHEDIR=${PWD}/vllm_root_cache
-docker run \
+docker run --rm \
   --ipc=host --network=host \
   --rm --name qwen2.5 -it \
   -v ${CACHEDIR}:/root/.cache \
