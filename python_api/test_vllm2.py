@@ -15,7 +15,7 @@ def encode_base64_content_from_url(content_url: str) -> str:
 
 
 # Text-only inference
-def run_text_only(model, text, max_completion_tokens=128) -> None:
+def run_text_only(client, model, text, max_completion_tokens=128) -> None:
     chat_completion = client.chat.completions.create(
         messages=[{
             "role": "user",
@@ -52,14 +52,16 @@ def image_to_base64(image_path):
     return np_to_base64(img)
 
 # Single-image input inference
-def run_single_image(model, text, image_path, max_completion_tokens=128) -> None:
+def run_single_image(client, model, text, image_path, max_completion_tokens=128) -> None:
     ## Use base64 encoded image in the payload
 
     # image_base64 = encode_base64_content_from_url(image_url)
     # image_base64 = encode_image("image_path")
     image_base64 = image_to_base64(image_path)
     chat_completion_from_base64 = client.chat.completions.create(
-        messages=[{
+        messages=[
+            # {"role": "system", "content": "Please answer using Japanese."},
+            {
             "role":
                 "user",
             "content": [
@@ -93,9 +95,7 @@ if __name__ == "__main__":
     parser.add_argument('--server', type=str, default="localhost") 
     parser.add_argument('--port', type=int, default=8000) 
     args = parser.parse_args() 
-    print(args) 
-
-
+    # print(args) 
 
     # Modify OpenAI's API key and API base to use vLLM's API server.
     openai_api_key = "sk-dummy"
@@ -109,8 +109,11 @@ if __name__ == "__main__":
 
     models = client.models.list()
     model = models.data[0].id
+
+    print(model)
+
     if args.image_path == "":
-        run_text_only(model, args.text)
+        run_text_only(client, model, args.text)
     else :
-        run_single_image(model, args.text, args.image_path)
+        run_single_image(client, model, args.text, args.image_path)
 
