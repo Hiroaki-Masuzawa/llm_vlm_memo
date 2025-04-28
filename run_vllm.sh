@@ -50,7 +50,7 @@ while [[ $# -gt 0 ]]; do
             shift
             shift
             ;;
-        -G|--no-gpu)
+        -C|--cpu)
             IMAGE_NAME="vllm-cpu-env"
             GPUOPTION=" "
             shift

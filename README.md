@@ -34,7 +34,7 @@ docker run -d --gpus=all -v ollama:/root/.ollama -p 11434:11434 --name ollama ol
     ```
 - Qwen2-VL-7B (CPU)
     ```
-    ./run_vllm.sh --model qwen2-7b --no-gpu
+    ./run_vllm.sh --model qwen2-7b --cpu
     ```
 - Qwen2.5-VL-3B (GPU)
     ```
@@ -50,7 +50,7 @@ docker run -d --gpus=all -v ollama:/root/.ollama -p 11434:11434 --name ollama ol
     ```
 - blip2-6.7b (CPU)
     ```
-    ./run_vllm.sh --model blip2-6.7b --no-gpu
+    ./run_vllm.sh --model blip2-6.7b --cpu
     ```
 
 ## クライアント側
