@@ -5,13 +5,10 @@ SERVEDMODEL=Qwen2-VL-2B-Instruct
 GPUOPTION="--gpus all"
 IMAGE_NAME=vllm/vllm-openai:latest
 OPTIONS=""
+OPTIONS+=" --limit_mm_per_prompt image=8" # 同時に画像を8枚まで実行可能にする
 
 while [[ $# -gt 0 ]]; do
     case $1 in
-        # -D|--devel)
-        #     USE_DEVEL="yes"
-        #     shift
-        #     ;;
         -m|--model)
             case $2 in
                 qwen2)
@@ -21,10 +18,16 @@ while [[ $# -gt 0 ]]; do
                 qwen2-7b)
                     MODEL=Qwen/Qwen2-VL-7B-Instruct
                     SERVEDMODEL=Qwen2-VL-7B-Instruct
+                    OPTIONS+=" --gpu_memory_utilization 0.95"
                     ;;
                 qwen2.5)
                     MODEL=Qwen/Qwen2.5-VL-3B-Instruct
                     SERVEDMODEL=Qwen2.5-VL-3B-Instruct
+                    OPTIONS+=" --max_model_len 87360"   ## VLAM 16GB設定
+                    ;;
+                qwen2.5-7b)
+                    MODEL=Qwen/Qwen2.5-VL-7B-Instruct
+                    SERVEDMODEL=Qwen2.5-VL-7B-Instruct
                     OPTIONS+=" --max_model_len 87360"   ## VLAM 16GB設定
                     ;;
                 llava-1.5)
@@ -50,9 +53,14 @@ while [[ $# -gt 0 ]]; do
             shift
             shift
             ;;
-        -C|--cpu)
+        -c|--cpu)
             IMAGE_NAME="vllm-cpu-env"
             GPUOPTION=" "
+            shift
+            ;;
+        -o|--offload)
+            OPTIONS+=" --cpu_offload_gb $2"
+            shift
             shift
             ;;
         --)
@@ -79,3 +87,4 @@ docker run -it --rm \
   -v ${SCRIPT_DIR}/vllm:/vllm \
   ${IMAGE_NAME} \
   --model ${MODEL} --served-model-name ${SERVEDMODEL} ${OPTIONS}
+  

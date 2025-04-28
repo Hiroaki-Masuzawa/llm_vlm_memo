@@ -36,9 +36,19 @@ docker run -d --gpus=all -v ollama:/root/.ollama -p 11434:11434 --name ollama ol
     ```
     ./run_vllm.sh --model qwen2-7b --cpu
     ```
+- Qwen2-VL-7B (GPU)
+    ```
+    # メモリオフロードすることで実行出来るようにする
+    # --offloadを使うと起動が遅くなる
+    ./run_vllm.sh --model qwen2-7b --offload 8
+    ```
 - Qwen2.5-VL-3B (GPU)
     ```
     ./run_vllm.sh --model qwen2.5
+    ```
+- Qwen2.5-VL-7B (GPU)
+    ```
+    ./run_vllm.sh --model qwen2.5-7b  --offload 8
     ```
 - llava-1.5-7b (GPU)
     ```
