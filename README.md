@@ -27,7 +27,8 @@ cd ..
 docker run -d --gpus=all -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
 ```
 ### vllm
-以下適切なものを選ぶ
+以下適切なものを選ぶ．
+いろいろ使っている感じとしてはQwen2-VL-7BとかQwen2.5-VL-7Bとかがいい感じに見える．
 - Qwen2-VL-2B (GPU)
     ```
     ./run_vllm.sh
@@ -38,7 +39,7 @@ docker run -d --gpus=all -v ollama:/root/.ollama -p 11434:11434 --name ollama ol
     ```
 - Qwen2-VL-7B (GPU)
     ```
-    # メモリオフロードすることで実行出来るようにする
+    # メモリオフロードすることでGPUメモリが少なくても実行出来る
     # --offloadを使うと起動が遅くなる
     ./run_vllm.sh --model qwen2-7b --offload 8
     ```
@@ -48,7 +49,7 @@ docker run -d --gpus=all -v ollama:/root/.ollama -p 11434:11434 --name ollama ol
     ```
 - Qwen2.5-VL-7B (GPU)
     ```
-    ./run_vllm.sh --model qwen2.5-7b  --offload 8
+    ./run_vllm.sh --model qwen2.5-7b  --offload 16
     ```
 - llava-1.5-7b (GPU)
     ```
@@ -81,7 +82,7 @@ python_apiディレクトリを参考にする．
 
 - ollama
 以下を参考にする．
-https://www.ollama.com/blog/openai-compatibility
+    - https://www.ollama.com/blog/openai-compatibility
 - vllm
 以下が参考になる．
-https://qiita.com/engchina/items/f7cc32f3f34011b69a18#api%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E3%81%AE%E9%80%81%E4%BF%A1
+    - https://qiita.com/engchina/items/f7cc32f3f34011b69a18#api%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E3%81%AE%E9%80%81%E4%BF%A1

@@ -23,17 +23,37 @@ while [[ $# -gt 0 ]]; do
                 qwen2.5)
                     MODEL=Qwen/Qwen2.5-VL-3B-Instruct
                     SERVEDMODEL=Qwen2.5-VL-3B-Instruct
-                    OPTIONS+=" --max_model_len 87360"   ## VLAM 16GB設定
+                    OPTIONS+=" --max_model_len 87360"   ## 
                     ;;
                 qwen2.5-7b)
                     MODEL=Qwen/Qwen2.5-VL-7B-Instruct
                     SERVEDMODEL=Qwen2.5-VL-7B-Instruct
-                    OPTIONS+=" --max_model_len 87360"   ## VLAM 16GB設定
+                    OPTIONS+=" --max_model_len 87360"   ## 
+                    ;;
+                qwen2.5-32b)
+                    MODEL=Qwen/Qwen2.5-VL-32B-Instruct
+                    SERVEDMODEL=Qwen2.5-VL-32B-Instruct
+                    OPTIONS+=" --max_model_len 87360"   ## 
                     ;;
                 llava-1.5)
                     MODEL=llava-hf/llava-1.5-7b-hf
                     SERVEDMODEL=llava-1.5-7b-hf
-                    OPTIONS+=" --chat-template /vllm/examples/template_llava.jinja --gpu_memory_utilization 0.95 --max_model_len 1024"   ## VLAM 16GB設定
+                    OPTIONS+=" --chat-template /vllm/examples/template_llava.jinja --gpu_memory_utilization 0.95 "   ## VLAM 16GB設定 --max_model_len 1024
+                    ;;
+                llava-next-mistral)
+                    MODEL=llava-hf/llava-v1.6-mistral-7b-hf
+                    SERVEDMODEL=llava-v1.6-mistral-7b-hf
+                    OPTIONS+=""   
+                    ;;
+                llava-next-vicuna)
+                    MODEL=llava-hf/llava-v1.6-vicuna-7b-hf
+                    SERVEDMODEL=llava-v1.6-vicuna-7b-hf
+                    OPTIONS+=""   
+                    ;;
+                llava-next-video)
+                    MODEL=llava-hf/LLaVA-NeXT-Video-7B-hf
+                    SERVEDMODEL=LLaVA-NeXT-Video-7B-hf
+                    OPTIONS+=""   
                     ;;
                 blip2)
                     MODEL=Salesforce/blip2-opt-2.7b
