@@ -9,6 +9,7 @@ Qwen2-VLはgrounding(画像中の領域と言語の紐づけ)が行われてお�
 ``` 
 # 画像をダウンロードする
 wget https://c.p02.c4a.im/images/item/18505268/86f4cbbb3be51b318ae1e7d71e562f07ecbc6e3dc068397fa496c8edc69bcee5?d=583x585 -O cans.jpg
+# プログラムを実行する
 python3 pred_bbox.py --object "red can" --image_path cans.jpg --output result.png
 ```
 
