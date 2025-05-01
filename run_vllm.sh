@@ -65,6 +65,28 @@ while [[ $# -gt 0 ]]; do
                     SERVEDMODEL=blip2-opt-6.7b
                     OPTIONS+=" --chat-template /vllm/examples/template_blip2.jinja"
                     ;;
+                llava-onevision-qwen2)
+                    MODEL=llava-hf/llava-onevision-qwen2-0.5b-ov-hf
+                    SERVEDMODEL=llava-onevision-qwen2-0.5b-ov-hf
+                    ;;
+                # ultravox)
+                #     MODEL=fixie-ai/ultravox-v0_5-llama-3_2-1b
+                #     SERVEDMODEL=ultravox-v0_5-llama-3_2-1b
+                #     ;;
+                qwen2-audio-7b)
+                    MODEL=Qwen/Qwen2-Audio-7B-Instruct
+                    SERVEDMODEL=Qwen2-Audio-7B-Instruct
+                    ;;
+                deepseek-vl2-small)
+                    MODEL=deepseek-ai/deepseek-vl2-small
+                    SERVEDMODEL=deepseek-vl2-small
+                    OPTIONS+=' --chat-template /vllm/examples/template_deepseek_vl2.jinja --hf-overrides '\{\"architectures\":\[\"DeepseekVLV2ForCausalLM\"\]\}''
+                    ;;
+                deepseek-vl2-tiny)
+                    MODEL=deepseek-ai/deepseek-vl2-tiny
+                    SERVEDMODEL=deepseek-vl2-tiny
+                    OPTIONS+=' --chat-template /vllm/examples/template_deepseek_vl2.jinja --hf-overrides '\{\"architectures\":\[\"DeepseekVLV2ForCausalLM\"\]\}''
+                    ;;
                 *)
                     echo "Unknown model $2"
                     exit 1
