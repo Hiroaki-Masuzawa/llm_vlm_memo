@@ -1,6 +1,3 @@
-from huggingface_hub import hf_hub_download
-import torch
-from transformers import AutoProcessor, LlavaOnevisionForConditionalGeneration
 
 try:
     import av
@@ -9,6 +6,10 @@ except:
     pip.main(['install', 'av'])
     importlib.reload(site) 
     import av
+
+from huggingface_hub import hf_hub_download
+import torch
+from transformers import AutoProcessor, LlavaOnevisionForConditionalGeneration
 
 # Load the model in half-precision
 model = LlavaOnevisionForConditionalGeneration.from_pretrained("llava-hf/llava-onevision-qwen2-7b-ov-hf", torch_dtype=torch.float16, device_map="auto")

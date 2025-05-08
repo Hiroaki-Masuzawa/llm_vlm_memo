@@ -20,7 +20,7 @@ docker build -f docker/Dockerfile.cpu --tag vllm-cpu-env --target vllm-openai .
 cd ..
 ```
 
-# 実行
+# 実行(サーバ - クライアント)
 ## サーバ側
 ### ollama
 ```
@@ -86,3 +86,25 @@ python_apiディレクトリを参考にする．
 - vllm
 以下が参考になる．
     - https://qiita.com/engchina/items/f7cc32f3f34011b69a18#api%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E3%81%AE%E9%80%81%E4%BF%A1
+
+# 実行(スタンドアローン)
+
+## vllm
+
+### video
+```
+./run_vllm_bash.sh
+```
+```
+python3 pred_video.py
+```
+### image
+```
+./run_vllm_bash.sh
+```
+```
+python3 pred_bbox.py --object "blue can" --image_path cans.jpg --output result.png
+# OR
+python3 pred_bbox2.py --object "blue can" --image_path cans.jpg --output result.png
+```
+
