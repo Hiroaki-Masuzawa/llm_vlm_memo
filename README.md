@@ -7,11 +7,17 @@ docker pull ollama/ollama
 ```
 ghcr.io/open-webui/open-webui:main
 ```
-### GPU
+### GPU using supervisor
+```
+./build_supervisor.sh
+```
+
+### GPU using terminal
 ```
 docker pull vllm/vllm-openai:latest
 ```
-### CPU
+
+### CPU using terminal
 vllm/docker/Dockerfile.cpuに以下環境変数を追記する．
 ```ENV SETUPTOOLS_SCM_PRETEND_VERSION=0.8.4```
 ```
@@ -26,7 +32,13 @@ cd ..
 ```
 docker run -d --gpus=all -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
 ```
-### vllm
+### vllm using supervisor
+```
+./run_supervisor.sh
+```
+webブラウザで`http://127.0.0.1:9999`にアクセスして，使用したいモデルのstartを押す．(他サーバで立ち上げた場合にはアクセスするIPアドレスを変更する)
+
+### vllm using terminal
 以下適切なものを選ぶ．
 いろいろ使っている感じとしてはQwen2-VL-7BとかQwen2.5-VL-7Bとかがいい感じに見える．
 - Qwen2-VL-2B (GPU)
