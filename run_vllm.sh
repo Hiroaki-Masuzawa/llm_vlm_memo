@@ -109,6 +109,11 @@ while [[ $# -gt 0 ]]; do
             shift
             shift
             ;;
+        -g|--gpuid)
+            GPUOPTION="--gpus device=$2"
+            shift
+            shift
+            ;;
         --)
             shift
             break
