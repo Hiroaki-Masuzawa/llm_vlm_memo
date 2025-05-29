@@ -21,10 +21,10 @@ deb http://security.ubuntu.com/ubuntu `lsb_release -sc`-security multiverse\n\
 deb-src http://security.ubuntu.com/ubuntu `lsb_release -sc`-security multiverse\n"> /etc/apt/sources.list
 
 
-RUN apt-get update && apt-get install -y openssh-server supervisor
-RUN mkdir -p /var/run/sshd /var/log/supervisor
-
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+RUN  --mount=type=cache,target=/var/cache/apt,sharing=locked \
+    --mount=type=cache,target=/var/lib/apt,sharing=locked \
+    apt-get update && apt-get install -y openssh-server supervisor
+RUN mkdir -p /var/log/supervisor
 
 RUN pip install pyasynchat
 
