@@ -9,6 +9,7 @@ ghcr.io/open-webui/open-webui:main
 ```
 ### GPU using supervisor
 ```
+cd shells
 ./build_supervisor.sh
 ```
 
@@ -34,6 +35,7 @@ docker run -d --gpus=all -v ollama:/root/.ollama -p 11434:11434 --name ollama ol
 ```
 ### vllm using supervisor
 ```
+cd shells
 ./run_supervisor.sh
 ```
 webブラウザで`http://127.0.0.1:9999`にアクセスして，使用したいモデルのstartを押す．(他サーバで立ち上げた場合にはアクセスするIPアドレスを変更する)
@@ -43,36 +45,44 @@ webブラウザで`http://127.0.0.1:9999`にアクセスして，使用したい
 いろいろ使っている感じとしてはQwen2-VL-7BとかQwen2.5-VL-7Bとかがいい感じに見える．
 - Qwen2-VL-2B (GPU)
     ```
+    cd shells
     ./run_vllm.sh
     ```
 - Qwen2-VL-7B (CPU)
     ```
+    cd shells
     ./run_vllm.sh --model qwen2-7b --cpu
     ```
 - Qwen2-VL-7B (GPU)
     ```
     # メモリオフロードすることでGPUメモリが少なくても実行出来る
     # --offloadを使うと起動が遅くなる
+    cd shells
     ./run_vllm.sh --model qwen2-7b --offload 8
     ```
 - Qwen2.5-VL-3B (GPU)
     ```
+    cd shells
     ./run_vllm.sh --model qwen2.5
     ```
 - Qwen2.5-VL-7B (GPU)
     ```
+    cd shells
     ./run_vllm.sh --model qwen2.5-7b  --offload 16
     ```
 - llava-1.5-7b (GPU)
     ```
+    cd shells
     ./run_vllm.sh --model llava-1.5
     ```
 - blip2-2.7b (GPU)
     ```
+    cd shells
     ./run_vllm.sh --model blip2
     ```
 - blip2-6.7b (CPU)
     ```
+    cd shells
     ./run_vllm.sh --model blip2-6.7b --cpu
     ```
 
@@ -80,6 +90,7 @@ webブラウザで`http://127.0.0.1:9999`にアクセスして，使用したい
 ### CUI (ollama - llama3)
 1. 端末で実行
 ```
+cd shells
 exec_llama3.sh
 ```
 ### webUI (ollama, vllm)
@@ -105,6 +116,7 @@ python_apiディレクトリを参考にする．
 
 ### video
 ```
+cd shells
 ./run_vllm_bash.sh
 ```
 ```
