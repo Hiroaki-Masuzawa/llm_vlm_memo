@@ -36,6 +36,9 @@ def run_text_only() -> None:
         }],
         model=model,
         max_completion_tokens=64,
+        extra_body={
+            "skip_special_tokens": True
+        }
     )
 
     result = chat_completion.choices[0].message.content
@@ -213,7 +216,7 @@ def main(chat_type) -> None:
 
 if __name__ == "__main__":
     main('text-only')
-    main('single-image')
+    # main('single-image')
     # main('multi-image')
     # main('audio')
 

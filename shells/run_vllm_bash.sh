@@ -1,5 +1,5 @@
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
-CACHEDIR=${SCRIPT_DIR}/vllm_root_cache
+CACHEDIR=${SCRIPT_DIR}/../vllm_root_cache
 GPUOPTION="--gpus all"
 IMAGE_NAME=vllm/vllm-openai:latest
 OPTIONS=""
@@ -24,7 +24,7 @@ done
 
 docker run -it --rm ${GPUOPTION} \
   -v ${CACHEDIR}:/root/.cache \
-  -v ${SCRIPT_DIR}/vllm:/vllm \
-  -v ${SCRIPT_DIR}:/userdir -w /userdir \
+  -v ${SCRIPT_DIR}/../vllm:/vllm \
+  -v ${SCRIPT_DIR}/..:/userdir -w /userdir \
   --name vllm_bash \
   --entrypoint="" ${IMAGE_NAME} bash

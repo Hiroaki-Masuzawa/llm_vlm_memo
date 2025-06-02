@@ -25,8 +25,8 @@ set -x
 docker run --rm -d \
 --net=host \
 ${GPUOPTION} \
--v ${SCRIPT_DIR}/vllm_root_cache:/root/.cache \
--v ${SCRIPT_DIR}/supervisor_configs:/etc/supervisor/conf.d \
+-v ${SCRIPT_DIR}/../vllm_root_cache:/root/.cache \
+-v ${SCRIPT_DIR}/../supervisor_configs:/etc/supervisor/conf.d \
 --entrypoint="" \
 --name=vllm-openai-supervisor \
 vllm-openai-supervisor /usr/bin/supervisord   

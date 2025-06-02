@@ -1,5 +1,5 @@
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
-CACHEDIR=${SCRIPT_DIR}/vllm_root_cache
+CACHEDIR=${SCRIPT_DIR}/../vllm_root_cache
 MODEL=Qwen/Qwen2-VL-2B-Instruct
 SERVEDMODEL=Qwen2-VL-2B-Instruct
 GPUOPTION="--gpus all"
@@ -135,7 +135,7 @@ docker run -it --rm \
   --ipc=host --network=host \
   --name vllm_api_server \
   -v ${CACHEDIR}:/root/.cache \
-  -v ${SCRIPT_DIR}/vllm:/vllm \
+  -v ${SCRIPT_DIR}/../vllm:/vllm \
   ${IMAGE_NAME} \
   --model ${MODEL} --served-model-name ${SERVEDMODEL} ${OPTIONS}
   
