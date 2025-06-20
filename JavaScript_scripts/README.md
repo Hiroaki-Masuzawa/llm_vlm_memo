@@ -14,7 +14,7 @@ node index.mjs
 ```
 
 ### ソースコードの書き換え
-以下の2箇所を書き換えてください：
+index.mjs内の以下の2箇所を書き換えてください：
 
 - `baseURL`: `http://133.15.97.107:8000/v1`（現在使用している OpenAI API 互換サーバのURL）
 - `model`: `Qwen2-VL-7B-Instruct`（現在使用しているモデル名）
