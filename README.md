@@ -3,10 +3,11 @@
 ```
 docker pull ollama/ollama
 ```
-## vllm
+## webUI
 ```
 ghcr.io/open-webui/open-webui:main
 ```
+## vllm
 ### GPU using supervisor
 ```
 cd shells
@@ -45,7 +46,7 @@ webブラウザで`http://127.0.0.1:9999`にアクセスして，使用したい
 いろいろ使っている感じとしてはQwen2-VL-7BとかQwen2.5-VL-7Bとかがいい感じに見える．
 - Qwen2-VL-2B (GPU)
     ```
-    cd shells
+    cd individual_shells
     ./run_vllm.sh
     ```
 - Qwen2-VL-7B (CPU)
