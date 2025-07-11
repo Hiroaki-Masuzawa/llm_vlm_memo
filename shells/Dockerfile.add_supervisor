@@ -27,5 +27,6 @@ RUN  --mount=type=cache,target=/var/cache/apt,sharing=locked \
 RUN mkdir -p /var/log/supervisor
 
 RUN pip install pyasynchat vllm[audio]
+RUN pip install transformers==4.52.4 
 
 CMD ["/usr/bin/supervisord"]
