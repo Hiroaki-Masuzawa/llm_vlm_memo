@@ -25,5 +25,13 @@ python3 test_video.py
 python3 test_audio.py
 ``` -->
 
+## speech to text
+APIサーバーは`whisper-small`で動く．
+```
+python3 test_transcription.py --audio_path 001-sibutomo.mp3
+```
+
 ### 参考
 - https://docs.vllm.ai/en/latest/serving/multimodal_inputs.html#online-serving
+- https://platform.openai.com/docs/api-reference/audio/createTranscription
+- https://qiita.com/hyeonwoo_kim/items/27e1566ec8b4e93192d1
