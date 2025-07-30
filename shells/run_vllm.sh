@@ -102,6 +102,7 @@ while [[ $# -gt 0 ]]; do
         -c|--cpu)
             IMAGE_NAME="vllm-cpu-env"
             GPUOPTION=" "
+            OPTIONS+=" --privileged "
             shift
             ;;
         -o|--offload)

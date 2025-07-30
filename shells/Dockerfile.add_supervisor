@@ -26,6 +26,6 @@ RUN  --mount=type=cache,target=/var/cache/apt,sharing=locked \
     apt-get update && apt-get install -y supervisor
 RUN mkdir -p /var/log/supervisor
 
-RUN pip install pyasynchat
+RUN pip install pyasynchat vllm[audio]
 
 CMD ["/usr/bin/supervisord"]

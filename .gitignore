@@ -9,3 +9,4 @@ temp/*
 *jpg
 python_api/*png
 *mp4
+javascript_scripts/node_modules/*
