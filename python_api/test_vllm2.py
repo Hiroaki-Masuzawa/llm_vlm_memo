@@ -66,14 +66,14 @@ def run_single_image(client, model, text, image_path, max_completion_tokens=128)
                 "user",
             "content": [
                 {
-                    "type": "text",
-                    "text": text,
-                },
-                {
                     "type": "image_url",
                     "image_url": {
                         "url": f"data:image/png;base64,{image_base64}"
                     },
+                },
+                {
+                    "type": "text",
+                    "text": text,
                 },
             ],
         }],
@@ -94,6 +94,7 @@ if __name__ == "__main__":
     parser.add_argument('--image_path', type=str, default="") 
     parser.add_argument('--server', type=str, default="localhost") 
     parser.add_argument('--port', type=int, default=8000) 
+    parser.add_argument('--maxtoken', type=int, default=128) 
     args = parser.parse_args() 
     # print(args) 
 
@@ -115,5 +116,5 @@ if __name__ == "__main__":
     if args.image_path == "":
         run_text_only(client, model, args.text)
     else :
-        run_single_image(client, model, args.text, args.image_path)
+        run_single_image(client, model, args.text, args.image_path, args.maxtoken)
 
