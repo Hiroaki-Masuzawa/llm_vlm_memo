@@ -134,7 +134,7 @@ python3 pred_bbox2.py --object "blue can" --image_path cans.jpg --output result.
 ```
 
 # キャッシュの消し方
-保存した`vllm_root_cache`ディレクトリ内に重みがあるので，
+`vllm_root_cache`ディレクトリ内に重みがあるので，
 容量が足りないときにはこの中を消すとよい．
 
 
