@@ -133,3 +133,8 @@ python3 pred_bbox.py --object "blue can" --image_path cans.jpg --output result.p
 python3 pred_bbox2.py --object "blue can" --image_path cans.jpg --output result.png
 ```
 
+# キャッシュの消し方
+保存した`vllm_root_cache`ディレクトリ内に重みがあるので，
+容量が足りないときにはこの中を消すとよい．
+
+
